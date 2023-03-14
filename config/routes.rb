@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  #Recipes List
   get 'recipes', to: 'recipes#index'
   get 'recipes/:id', to: 'recipes#show'
   patch 'recipes/:id', to: 'recipes#update'
   delete 'recipes/:id', to: 'recipes#destroy'
+
+  # General Shopping List
+  get 'general_shopping_list', to: 'general_shopping#index'
 end
