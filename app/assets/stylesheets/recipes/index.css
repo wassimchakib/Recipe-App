@@ -1,0 +1,39 @@
+.recipe__container {
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+}
+
+.recipe {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 150px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 10px;
+  font-size: 1.6rem;
+  padding: 1.6rem;
+  border: 1px solid #000;
+}
+
+.recipe__title a {
+  text-decoration: underline;
+  color: #214bf4
+}
+
+.recipe__description {
+  margin-right: 3rem;
+  width: 50%;
+  font-size: 1.4rem;
+  font-weight: 100;
+  overflow: hidden;
+}
+
+.recipe__info {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
