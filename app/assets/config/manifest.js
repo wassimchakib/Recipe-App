@@ -2,4 +2,5 @@
 //= link_directory ../stylesheets .css
 //= link_tree ../../javascript .js
 //= link recipes/index.css
+//= link recipes/show.css
 //= link_tree ../../../vendor/javascript .js
