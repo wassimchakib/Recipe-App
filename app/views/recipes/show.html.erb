@@ -1,1 +1,68 @@
-<h1><%= @recipe %></h1>
+<%= stylesheet_link_tag 'recipes/show', media: 'all' %>
+<div class="recipe__info">
+  <h2 class="recipe__title">Recipe title</h2>
+  <div class="recipe__vision">
+    <p>Preparation time: 1 hour</p>
+    <p>
+      Public
+      <label class="recipe__switch">
+        <input type="checkbox" id="recipe_public"checked>
+        <span class="slider"></span>
+      </label>
+    </p>
+  </div>
+  <p>Cooking time: 1.5 hours</p>
+  <p>Description of the recipe</p>
+  <div class="recipe__action">
+    <%= link_to 'Generate Shopping list' ,nil, class:"recipe__button" %>
+    <%= link_to 'Add ingredient',nil, class:"recipe__button" %>
+  </div>
+</div>
+
+<div class="recipe__detail">
+  <table>
+    <thead>
+      <tr>
+        <td>Food</td>
+        <td>Quantity</td>
+        <td>Value</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Apple</td>
+        <td>20g</td>
+        <td>$100</td>
+        <td>
+          <%= link_to 'remove', nil, class:"recipe__remove" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const checkbox = document.getElementById('recipe_public');
+    checkbox.addEventListener('click', function() {
+      const url = 'recipes/1';
+      const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+      const active = checkbox.checked;
+      fetch(url, {
+        method: 'PATCH',
+        headers: {
+          'X-CSRF-Token': csrfToken,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ recipe: { public: active } })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Update the checkbox with the new value from the server
+        checkbox.checked = data.active;
+      })
+      .catch(error => console.log(error));
+    });
+  });
+</script>
