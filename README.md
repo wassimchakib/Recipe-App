@@ -103,6 +103,12 @@ DATABASE_PASSWORD=
 - Twitter: [@wassim_chakib](https://twitter.com/wassim_chakib)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/wassimchakib/)
 
+👤 **Ben Salès**
+
+- GitHub: [@adebsa2401](https://github.com/adebsa2401)
+- Twitter: [@Adebsa3](https://twitter.com/Adebsa3)
+- LinkedIn: [adebsa](https://www.linkedin.com/in/adebsa)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
