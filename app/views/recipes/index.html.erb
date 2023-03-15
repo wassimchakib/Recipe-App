@@ -1,13 +1,29 @@
 <%= stylesheet_link_tag 'recipes/index', media: 'all' %>
 <div class="recipe__container">
-  <div class="recipe">
-    <div class="recipe__title">
-      <h2>Recipe 1</h2>
-      <a href="#">Remove</a>
-    </div>
-    <p class="recipe__description">description of the first recipe</p>
-    <a href="#" class="recipe__info">
-       <%= image_tag "info_icon.png", height: 50 %>
-    </a>
+  <div class="recipe__add">
+    <%= link_to 'Add Recipe', new_recipe_path %>
   </div>
+  <% if @recipes.empty? %>
+    <div class="recipe">
+      <div class="recipe__title">
+        <h2>No recipes found. Consider adding one</h2>
+      </div>
+    </div>
+  <% end %>
+  <% @recipes.each do |recipe| %>
+    <div class="recipe">
+      <div class="recipe__title">
+        <h2><%= recipe.name %></h2>
+        <%= link_to "Delete", recipe_path(recipe.id), data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+            }
+        %>
+      </div>
+      <p class="recipe__description"><%= recipe.description %></p>
+      <a href=<%= recipe_path(recipe.id) %> class="recipe__info">
+        <%= image_tag "info_icon.png", height: 50 %>
+      </a>
+    </div>
+  <% end %>
 </div>

@@ -8,10 +8,7 @@ Rails.application.routes.draw do
   root "recipes#index"
 
   #Recipes List
-  get 'recipes', to: 'recipes#index'
-  get 'recipes/:id', to: 'recipes#show'
-  patch 'recipes/:id', to: 'recipes#update'
-  delete 'recipes/:id', to: 'recipes#destroy'
+  resources :recipes
 
   # General Shopping List
   get 'general_shopping_list', to: 'general_shopping#index'
