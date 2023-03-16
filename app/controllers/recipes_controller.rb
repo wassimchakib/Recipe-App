@@ -4,7 +4,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = 'Recipe detail'
+    @recipe = Recipe.find(params[:id])
+    @recipe_foods = @recipe.recipe_foods
   end
 
   def new
@@ -45,6 +46,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public).merge(user: current_user)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description,
+                                   :public).merge(user: current_user)
   end
 end

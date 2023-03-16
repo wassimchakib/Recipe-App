@@ -1,21 +1,21 @@
 <%= stylesheet_link_tag 'recipes/show', media: 'all' %>
 <div class="recipe__info">
-  <h2 class="recipe__title">Recipe title</h2>
+  <h2 class="recipe__title"><%= @recipe.name %></h2>
   <div class="recipe__vision">
-    <p>Preparation time: 1 hour</p>
+    <p>Preparation time: <%= @recipe.preparation_time %></p>
     <p>
       Public
       <label class="recipe__switch">
-        <input type="checkbox" id="recipe_public"checked>
+        <input type="checkbox" id="recipe_public" <%= @recipe.public ? 'checked' : '' %>>
         <span class="slider"></span>
       </label>
     </p>
   </div>
-  <p>Cooking time: 1.5 hours</p>
-  <p>Description of the recipe</p>
+  <p>Cooking time: <%= @recipe.cooking_time %></p>
+  <p><%= @recipe.description %></p>
   <div class="recipe__action">
     <%= link_to 'Generate Shopping list' ,nil, class:"recipe__button" %>
-    <%= link_to 'Add ingredient',nil, class:"recipe__button" %>
+    <%= link_to 'Add ingredient',new_recipe_recipe_food_path(@recipe.id), class:"recipe__button" %>
   </div>
 </div>
 
@@ -29,15 +29,20 @@
         <td>Actions</td>
       </tr>
     </thead>
+    <% if @recipe_foods.empty? %>
+      <h2>No Recipe Food found, click on add ingredient to add one</h2>
+    <% end %>
     <tbody>
+    <% @recipe_foods.each do |recipe|%>
       <tr>
-        <td>Apple</td>
-        <td>20g</td>
-        <td>$100</td>
+        <td><%= recipe.food.name %></td>
+        <td><%= recipe.quantity %><%= recipe.food.measurement_unit %></td>
+        <td><%= recipe.food.price %></td>
         <td>
           <%= link_to 'remove', nil, class:"recipe__remove" %>
         </td>
       </tr>
+    <% end %>
     </tbody>
   </table>
 </div>
@@ -46,7 +51,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     const checkbox = document.getElementById('recipe_public');
     checkbox.addEventListener('click', function() {
-      const url = 'recipes/1';
+      const url = "<%= recipe_path %>";
       const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
       const active = checkbox.checked;
       fetch(url, {
@@ -60,7 +65,7 @@
       .then(response => response.json())
       .then(data => {
         // Update the checkbox with the new value from the server
-        checkbox.checked = data.active;
+        checkbox.checked = !checkbox.checked;
       })
       .catch(error => console.log(error));
     });
