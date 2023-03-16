@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User', type: :system do
+RSpec.describe 'Recipe', type: :system do
   let(:user) do
     User.find_by(email: 'wassimchakib@gmail.com')
   end
