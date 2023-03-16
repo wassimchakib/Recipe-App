@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 
   # General Shopping List
   get 'general_shopping_list', to: 'general_shopping#index'
+
+  # foods
+  resources :foods, only: [:index, :new, :create, :destroy]
 end
