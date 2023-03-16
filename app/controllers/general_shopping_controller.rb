@@ -3,7 +3,7 @@ class GeneralShoppingController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @missing_foods = []
     # Loop through the recipe foods and if the quantity is less than what user have, then add it to missing foods
-    @recipe.recipe_foods.each do |recipe_food|
+    @recipe.recipe_foods.includes(:food).each do |recipe_food|
       next unless recipe_food.quantity > recipe_food.food.quantity
 
       @food_name = recipe_food.food.name
