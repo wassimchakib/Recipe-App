@@ -21,6 +21,10 @@
 
 <div class="recipe__detail">
   <table>
+    <% if @recipe_foods.empty? %>
+      <h2>No Recipe Food found, click on add ingredient to add one</h2>
+    <% end %>
+    <% @recipe_foods.each do |recipe_food|%>
     <thead>
       <tr>
         <td>Food</td>
@@ -29,17 +33,17 @@
         <td>Actions</td>
       </tr>
     </thead>
-    <% if @recipe_foods.empty? %>
-      <h2>No Recipe Food found, click on add ingredient to add one</h2>
-    <% end %>
     <tbody>
-    <% @recipe_foods.each do |recipe|%>
       <tr>
-        <td><%= recipe.food.name %></td>
-        <td><%= recipe.quantity %><%= recipe.food.measurement_unit %></td>
-        <td><%= recipe.food.price %></td>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %><%= recipe_food.food.measurement_unit %></td>
+        <td><%= recipe_food.food.price %></td>
         <td>
-          <%= link_to 'remove', nil, class:"recipe__remove" %>
+          <%= link_to "remove", recipe_recipe_food_path(recipe_food.recipe.id, recipe_food.id), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              }, class:"recipe__remove"
+          %>
         </td>
       </tr>
     <% end %>
