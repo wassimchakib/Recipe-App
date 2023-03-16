@@ -14,12 +14,12 @@ RSpec.describe 'Recipe', type: :system do
       visit recipe_path(1)
       expect(page).to have_content('Grilled Basil Chicken')
     end
-  
+
     it 'shows the Preparation time of the recipe' do
       visit recipe_path(1)
       expect(page).to have_content('Preparation time: 10 min')
     end
-  
+
     it 'shows the Cooking time of the recipe' do
       visit recipe_path(1)
       expect(page).to have_content('Cooking time: 45 min')
@@ -39,7 +39,7 @@ RSpec.describe 'Recipe', type: :system do
       visit recipe_path(1)
       expect(page).to have_content('Add ingredient')
     end
-  
+
     it 'has add generate shopping list button' do
       visit recipe_path(1)
       expect(page).to have_content('Generate Shopping list')
@@ -50,24 +50,23 @@ RSpec.describe 'Recipe', type: :system do
       expect(page).to have_content('Food')
       expect(page).to have_content('Olive Oil')
     end
-  
+
     it 'shows the quantity of each recipe foods' do
       visit recipe_path(1)
       expect(page).to have_content('Quantity')
       expect(page).to have_content('20')
     end
-  
+
     it 'shows the value or price of each recipe foods' do
       visit recipe_path(1)
       expect(page).to have_content('Value')
       expect(page).to have_content('49.99')
     end
-  
+
     it 'shows the remove button of each recipe foods' do
       visit recipe_path(1)
       expect(page).to have_content('Actions')
       expect(page).to have_content('remove')
     end
-
   end
 end
