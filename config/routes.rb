@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   #Recipes List
   resources :recipes do
     resources :recipe_foods
+    get 'general_shopping_list', to: 'general_shopping#index'
   end
-
-  # General Shopping List
-  get 'general_shopping_list', to: 'general_shopping#index'
 end

@@ -14,8 +14,8 @@
   <p>Cooking time: <%= @recipe.cooking_time %></p>
   <p><%= @recipe.description %></p>
   <div class="recipe__action">
-    <%= link_to 'Generate Shopping list' ,nil, class:"recipe__button" %>
-    <%= link_to 'Add ingredient',new_recipe_recipe_food_path(@recipe.id), class:"recipe__button" %>
+    <%= link_to 'Generate Shopping list' , recipe_general_shopping_list_path(@recipe.id), class:"recipe__button" %>
+    <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe.id), class:"recipe__button" %>
   </div>
 </div>
 
@@ -24,7 +24,6 @@
     <% if @recipe_foods.empty? %>
       <h2>No Recipe Food found, click on add ingredient to add one</h2>
     <% end %>
-    <% @recipe_foods.each do |recipe_food|%>
     <thead>
       <tr>
         <td>Food</td>
@@ -34,6 +33,7 @@
       </tr>
     </thead>
     <tbody>
+    <% @recipe_foods.each do |recipe_food|%>
       <tr>
         <td><%= recipe_food.food.name %></td>
         <td><%= recipe_food.quantity %><%= recipe_food.food.measurement_unit %></td>
