@@ -3,6 +3,7 @@
 //= link_tree ../../javascript .js
 //= link recipes/index.css
 //= link recipes/show.css
+//= link recipes/new.css
 //= link shopping-list/index.css
 //= link recipe_foods/new.css
 //= link_tree ../../../vendor/javascript .js

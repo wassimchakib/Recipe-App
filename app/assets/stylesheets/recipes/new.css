@@ -1,4 +1,4 @@
-.recipe-food__add {
+.recipe__add {
   padding: 1.6rem;
   font-size: 1.6rem;
   max-width: 1000px;
@@ -11,32 +11,32 @@
   box-shadow: 5px 6px 14px 1px rgba(0, 0, 0, 0.58);
 }
 
-.recipe-food__title {
+.recipe__title {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.recipe-food__container {
+.recipe__container {
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
 }
 
-.recipe-food__form {
+.recipe__form {
   display: flex;
 }
 
-.recipe-food__form label {
+.recipe__form label {
   flex: 1;
 }
 
-.recipe-food__form input,
-.recipe-food__form textarea {
+.recipe__form input,
+.recipe__form textarea {
   width: 100%;
   flex: 2;
 }
 
-.recipe-food__submit {
+.recipe__submit {
   padding: 1rem;
   background-color: #0a9270;
   color: #fff;
@@ -44,8 +44,8 @@
   border: none;
 }
 
-.recipe-food__submit:hover,
-.recipe-food__submit:active {
+.recipe__submit:hover,
+.recipe__submit:active {
   background-color: #0cebb3;
   color: #000;
 }
