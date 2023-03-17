@@ -1,0 +1,31 @@
+<div class="d-flex flex-column justify-content-center h-100 m-5">
+  <%= form_for @food, url: foods_path(@food) do |f| %>
+
+    <h1 class="card-header text-center">Add Food</h1>
+    <div class="card-body">
+      <div class="form-group py-3">
+        <%= f.label :name, class: "form-label" %><br/>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      </div>
+
+      <div class="form-group py-3">
+        <%= f.label :measurement_unit, class: "form-label" %><br/>
+        <%= f.text_field :measurement_unit, autocomplete: "measurement_unit", class: "form-control" %>
+      </div>
+
+      <div class="form-group py-3">
+        <%= f.label :price, class: "form-label" %>
+        <%= f.number_field :price, autocomplete: "price", class: "form-control" %>
+      </div>
+
+      <div class="form-group py-3">
+        <%= f.label :quantity, class: "form-label" %><br />
+        <%= f.number_field :quantity, autocomplete: "quantity", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <%= f.submit "Add", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
