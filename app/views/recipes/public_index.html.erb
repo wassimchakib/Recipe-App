@@ -1,0 +1,25 @@
+<%= stylesheet_link_tag 'recipes/index', media: 'all' %>
+<div class="recipe__container">
+  <% if @recipes.empty? %>
+    <div class="recipe">
+      <div class="recipe__title">
+        <h2>No recipes found.</h2>
+      </div>
+    </div>
+  <% end %>
+  <% @recipes.each do |recipe| %>
+    <div class="recipe">
+      <div class="recipe__title">
+        <h2><%= recipe.name %></h2>
+        <span style="font-style: italic; font-size: medium">By: <%= recipe.user.name %></span>
+      </div>
+      <div class="recipe__description">
+        <p>Total food items: <%= recipe.recipe_foods.length %></p>
+        <p>Total price: $<%= recipe.total_price %></p>
+      </div>
+      <a href=<%= recipe_path(recipe.id) %> class="recipe__info">
+        <%= image_tag "info_icon.png", height: 50 %>
+      </a>
+    </div>
+  <% end %>
+</div>

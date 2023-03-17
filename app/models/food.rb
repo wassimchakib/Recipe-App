@@ -3,4 +3,8 @@ class Food < ApplicationRecord
   has_many :recipe_foods
 
   validates :name, presence: true, length: { minimum: 3 }
+
+  def total_price
+    price * quantity
+  end
 end
