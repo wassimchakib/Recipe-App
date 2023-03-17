@@ -12,7 +12,7 @@
       <tr>
         <td>Food</td>
         <td>Quantity</td>
-        <td>Price</td>
+        <td>Price (Per unit) </td>
       </tr>
     </thead>
     <% if @missing_foods.empty? %>
@@ -22,7 +22,7 @@
     <% @missing_foods.each do |missing_food| %>
       <tr>
         <td><%= missing_food[:name] %></td>
-        <td><%= missing_food[:quantity] %></td>
+        <td><%= missing_food[:quantity] %> <%= missing_food[:unit] %></td>
         <td><%= missing_food[:price] %></td>
       </tr>
     <% end %>

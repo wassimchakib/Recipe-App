@@ -13,10 +13,10 @@ class GeneralShoppingController < ApplicationController
       @food_name = recipe_food.food.name
       @quantity = recipe_food.quantity - (@user_food.empty? ? 0 : @user_food.first.quantity)
       @unit = recipe_food.food.measurement_unit
-      @price = recipe_food.total_price
-      @missing_foods << { name: @food_name, quantity: @quantity.to_s + @unit, price: @price.round(2) }
+      @price = recipe_food.food.price
+      @missing_foods << { name: @food_name, quantity: @quantity, unit: @unit, price: @price }
     end
     @total_price = 0
-    @missing_foods.each { |e| @total_price += e[:price] }
+    @missing_foods.each { |e| @total_price += e[:price] * e[:quantity] }
   end
 end
