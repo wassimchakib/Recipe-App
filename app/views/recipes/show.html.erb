@@ -3,6 +3,7 @@
   <h2 class="recipe__title"><%= @recipe.name %></h2>
   <div class="recipe__vision">
     <p>Preparation time: <%= @recipe.preparation_time %></p>
+    <% if current_user == @recipe.user %>
     <p>
       Public
       <label class="recipe__switch">
@@ -10,12 +11,15 @@
         <span class="slider"></span>
       </label>
     </p>
+    <% end %>
   </div>
   <p>Cooking time: <%= @recipe.cooking_time %></p>
   <p><%= @recipe.description %></p>
   <div class="recipe__action">
     <%= link_to 'Generate Shopping list' , recipe_general_shopping_list_path(@recipe.id), class:"recipe__button" %>
-    <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe.id), class:"recipe__button" %>
+    <% if current_user == @recipe.user %>
+      <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe.id), class:"recipe__button" %>
+    <% end %>
   </div>
 </div>
 
@@ -28,8 +32,10 @@
       <tr>
         <td>Food</td>
         <td>Quantity</td>
-        <td>Value</td>
-        <td>Actions</td>
+        <td>Value ( per unit) </td>
+        <% if current_user == @recipe.user %>
+          <td>Actions</td>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -38,6 +44,7 @@
         <td><%= recipe_food.food.name %></td>
         <td><%= recipe_food.quantity %><%= recipe_food.food.measurement_unit %></td>
         <td><%= recipe_food.food.price %></td>
+        <% if current_user == @recipe.user %>
         <td>
           <%= link_to "remove", recipe_recipe_food_path(recipe_food.recipe.id, recipe_food.id), data: {
                 turbo_method: :delete,
@@ -45,6 +52,7 @@
               }, class:"recipe__remove"
           %>
         </td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>

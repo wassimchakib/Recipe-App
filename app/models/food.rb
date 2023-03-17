@@ -5,8 +5,4 @@ class Food < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :quantity, presence: true, numericality: { greater_than: 0 }
-
-  def total_price
-    price * quantity
-  end
 end
