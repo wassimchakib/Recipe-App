@@ -23,8 +23,18 @@ RSpec.describe Food, type: :model do
     expect(food).to_not be_valid
   end
 
+  it 'fails because price should be greater than 0' do
+    food.price = -1
+    expect(food).to_not be_valid
+  end
+
   it 'fails because quantity should be present' do
     food.quantity = nil
+    expect(food).to_not be_valid
+  end
+
+  it 'fails because quantity should be greater than 0' do
+    food.quantity = -1
     expect(food).to_not be_valid
   end
 end
