@@ -34,7 +34,7 @@ RSpec.describe 'Shopping list', type: :system do
     it 'Shows the quantity of food to buy' do
       visit recipe_general_shopping_list_path(1)
       expect(page).to have_content('Quantity')
-      expect(page).to have_content('2.0Kg')
+      expect(page).to have_content('2.0 Kg')
     end
 
     it 'Shows the price of each food to buy' do
