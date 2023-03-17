@@ -22,7 +22,7 @@
       </div>
       <p class="recipe__description"><%= recipe.description %></p>
       <a href=<%= recipe_path(recipe.id) %> class="recipe__info">
-        <%= image_tag "info_icon.png", height: 50 %>
+        <%= image_tag "info_icon.png", height: 50, id: 'info__img' %>
       </a>
     </div>
   <% end %>

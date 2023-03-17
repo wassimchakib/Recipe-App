@@ -4,12 +4,12 @@ class RecipesController < ApplicationController
   end
 
   def public_index
-    @recipes = Recipe.where(public: true).order(created_at: :desc)
+    @recipes = Recipe.where(public: true).includes(:recipe_foods).order(created_at: :desc)
   end
 
   def show
     @recipe = Recipe.find(params[:id])
-    @recipe_foods = @recipe.recipe_foods
+    @recipe_foods = @recipe.recipe_foods.includes(:food)
   end
 
   def new

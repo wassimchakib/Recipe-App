@@ -29,4 +29,8 @@
     </div>
   <% end %>
   <p>Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %></p>
+  <%= render "devise/shared/error_messages", resource: resource %>
+    <% flash.each do |key, value| %>
+       <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
 </div>

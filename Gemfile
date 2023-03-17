@@ -30,6 +30,9 @@ gem 'jbuilder'
 # Config devise
 gem 'devise'
 
+# Config Factory bot
+gem 'factory_bot_rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

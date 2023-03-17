@@ -2,7 +2,7 @@ class GeneralShoppingController < ApplicationController
   def index
     @recipe = Recipe.find(params[:recipe_id]) # Select the appropriate recipe
     @foods = Food.where(user: current_user) # Retrieve all foods that the current user have
-    @recipe_foods = @recipe.recipe_foods
+    @recipe_foods = @recipe.recipe_foods.includes(:food)
     @missing_foods = []
     # Loop through the recipe foods and if the quantity is less than what user have, or
     # if the user doesn't own the food, then add it to missing foods
