@@ -1,0 +1,51 @@
+.recipe-food__add {
+  padding: 1.6rem;
+  font-size: 1.6rem;
+  max-width: 1000px;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #000;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  -webkit-box-shadow: 5px 6px 14px 1px rgba(0, 0, 0, 0.58);
+  box-shadow: 5px 6px 14px 1px rgba(0, 0, 0, 0.58);
+}
+
+.recipe-food__title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.recipe-food__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+.recipe-food__form {
+  display: flex;
+}
+
+.recipe-food__form label {
+  flex: 1;
+}
+
+.recipe-food__form input,
+.recipe-food__form textarea {
+  width: 100%;
+  flex: 2;
+}
+
+.recipe-food__submit {
+  padding: 1rem;
+  background-color: #0a9270;
+  color: #fff;
+  transition: 0.4s;
+  border: none;
+}
+
+.recipe-food__submit:hover,
+.recipe-food__submit:active {
+  background-color: #0cebb3;
+  color: #000;
+}

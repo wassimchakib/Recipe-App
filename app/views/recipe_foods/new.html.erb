@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag 'recipe_foods/new', media: 'all' %>
+<div class="recipe-food__add">
+  <h2 class="recipe-food__title">Add new ingredient</h2>
+  <%= form_with model: @recipe_food, url: recipe_recipe_foods_path(params[:recipe_id]) , local: true do |f| %>
+
+  <div class="recipe-food__container">
+    <div class="recipe-food__form">
+      <%= f.label :name %> <br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="recipe-food__form">
+      <%= f.label :measurement_unit %> <br>
+      <%= f.text_field :measurement_unit %>
+    </div>
+
+    <div class="recipe-food__form">
+      <%= f.label :price %> <br>
+      <%= f.text_field :price %>
+    </div>
+
+    <div class="recipe-food__form">
+      <%= f.label :quantity %> <br>
+      <%= f.text_field :quantity %>
+    </div>
+
+    <%= f.submit class: 'recipe-food__submit'%> <br>
+  </div>
+
+  <% end %>
+</div>
