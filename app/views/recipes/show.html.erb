@@ -3,6 +3,7 @@
   <h2 class="recipe__title"><%= @recipe.name %></h2>
   <div class="recipe__vision">
     <p>Preparation time: <%= @recipe.preparation_time %></p>
+    <% if current_user == @recipe.user %>
     <p>
       Public
       <label class="recipe__switch">
@@ -10,6 +11,7 @@
         <span class="slider"></span>
       </label>
     </p>
+    <% end %>
   </div>
   <p>Cooking time: <%= @recipe.cooking_time %></p>
   <p><%= @recipe.description %></p>
