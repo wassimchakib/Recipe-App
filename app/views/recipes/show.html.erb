@@ -17,7 +17,9 @@
   <p><%= @recipe.description %></p>
   <div class="recipe__action">
     <%= link_to 'Generate Shopping list' , recipe_general_shopping_list_path(@recipe.id), class:"recipe__button" %>
-    <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe.id), class:"recipe__button" %>
+    <% if current_user == @recipe.user %>
+      <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe.id), class:"recipe__button" %>
+    <% end %>
   </div>
 </div>
 

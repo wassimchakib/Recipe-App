@@ -6,7 +6,7 @@ class RecipeFoodsController < ApplicationController
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @food = Food.find_by(name: recipe_food_params['name'],
-                         measurement_unit: recipe_food_params['measurement_unit'])
+                         measurement_unit: recipe_food_params['measurement_unit'], user: current_user)
 
     # If food doesn't exist
     if @food.nil?
