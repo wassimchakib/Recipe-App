@@ -32,8 +32,10 @@
       <tr>
         <td>Food</td>
         <td>Quantity</td>
-        <td>Value</td>
-        <td>Actions</td>
+        <td>Value ( per unit) </td>
+        <% if current_user == @recipe.user %>
+          <td>Actions</td>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -42,6 +44,7 @@
         <td><%= recipe_food.food.name %></td>
         <td><%= recipe_food.quantity %><%= recipe_food.food.measurement_unit %></td>
         <td><%= recipe_food.food.price %></td>
+        <% if current_user == @recipe.user %>
         <td>
           <%= link_to "remove", recipe_recipe_food_path(recipe_food.recipe.id, recipe_food.id), data: {
                 turbo_method: :delete,
@@ -49,6 +52,7 @@
               }, class:"recipe__remove"
           %>
         </td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>
