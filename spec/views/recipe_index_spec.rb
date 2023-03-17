@@ -16,29 +16,26 @@ RSpec.describe 'Recipe', type: :system do
 
   before(:each) do
     login_as(user)
+    recipe
   end
 
   describe 'index page' do
     it 'shows the title of each recipe' do
-      recipe
       visit recipes_path
       expect(page).to have_content('My First Recipe')
     end
 
     it 'shows the description of each recipe' do
-      recipe
       visit recipes_path
       expect(page).to have_content('This is the description of recipe')
     end
 
     it 'has delete button' do
-      recipe
       visit recipes_path
       expect(page).to have_content('Delete')
     end
 
     it 'has add recipe button' do
-      recipe
       visit recipes_path
       expect(page).to have_content('Add Recipe')
     end
