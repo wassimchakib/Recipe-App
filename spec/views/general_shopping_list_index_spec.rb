@@ -9,7 +9,10 @@ RSpec.describe 'Shopping list', type: :system do
     end
   end
 
-  let(:recipe) { Recipe.find_or_create_by(user:, name: 'My First Recipe', preparation_time: '15 min', cooking_time: '45 min', public: true, description: 'This is the description of recipe') }
+  let(:recipe) do
+    Recipe.find_or_create_by(user:, name: 'My First Recipe', preparation_time: '15 min', cooking_time: '45 min',
+                             public: true, description: 'This is the description of recipe')
+  end
 
   let(:food) { Food.find_or_create_by(name: 'Chicken Breast', measurement_unit: 'Kg', price: 200, quantity: 2, user:) }
 
