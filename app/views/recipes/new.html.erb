@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag 'recipes/new', media: 'all' %>
+<div class="recipe__add">
+  <h2 class="recipe__title">Add new Recipe</h2>
+  <%= form_with model: @recipe, url: recipes_path , local: true do |f| %>
+
+  <div class="recipe__container">
+    <div class="recipe__form">
+      <%= f.label :name %> <br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="recipe__form">
+      <%= f.label :preparation_time %> <br>
+      <%= f.text_field :preparation_time %>
+    </div>
+
+    <div class="recipe__form">
+      <%= f.label :cooking_time %> <br>
+      <%= f.text_field :cooking_time %>
+    </div>
+
+    <div class="recipe__form">
+      <%= f.label :public %> <br>
+      <%= f.check_box :public, {}, "true", "false" %>
+    </div>
+
+    <div class="recipe__form">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+    <%= f.submit class:'recipe__submit' %> <br>
+  </div>
+
+  <% end %>
+</div>

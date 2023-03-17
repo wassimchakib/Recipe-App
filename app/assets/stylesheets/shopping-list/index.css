@@ -1,0 +1,40 @@
+.shopping__info,
+.shopping__detail {
+  padding: 1.6rem;
+  font-size: 1.6rem;
+  max-width: 1000px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.shopping__title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.shopping__price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shopping__detail td {
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.shopping__detail thead {
+  background-color: #0a9270;
+  color: #fff;
+}
+
+.shopping__detail tbody {
+  font-size: 1.4rem;
+}
+
+.shopping__detail tbody td {
+  padding: 0.5rem 0;
+}
+
+.shopping__detail tbody tr:nth-child(2n + 1) {
+  background-color: rgb(232, 231, 231);
+}

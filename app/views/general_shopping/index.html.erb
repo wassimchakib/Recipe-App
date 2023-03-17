@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag 'shopping-list/index', media: 'all' %>
+<div class="shopping__info">
+  <h2 class="shopping__title">Shopping List</h2>
+  <div class="shopping__price">
+    <p>Amount of food items to buy: <%= @missing_foods.length %></p>
+    <p>Total Value of food needed: $<%= @total_price %></p>
+  </div>
+</div>
+<div class="shopping__detail">
+  <table>
+    <thead>
+      <tr>
+        <td>Food</td>
+        <td>Quantity</td>
+        <td>Price (Per unit) </td>
+      </tr>
+    </thead>
+    <% if @missing_foods.empty? %>
+      <h2>You don't have any missing food. Enjoy cooking</h2>
+    <% end %>
+    <tbody>
+    <% @missing_foods.each do |missing_food| %>
+      <tr>
+        <td><%= missing_food[:name] %></td>
+        <td><%= missing_food[:quantity] %> <%= missing_food[:unit] %></td>
+        <td><%= missing_food[:price] %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

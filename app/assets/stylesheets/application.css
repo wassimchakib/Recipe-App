@@ -1,15 +1,91 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* Reset CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Navigation bar */
+nav {
+  background-color: #0a9270;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+}
+
+nav ul li {
+  display: inline-block;
+  background-color: #0a9270;
+  color: #fff;
+  padding: 20px;
+}
+
+nav a {
+  display: inline-block;
+  color: #f9f5e7;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+a:hover {
+  color: #eddbc7;
+}
+
+nav ul li i {
+  margin-right: 10px;
+}
+
+.log__out {
+  display: inline-block;
+}
+
+.log__out i {
+  font-size: 18px;
+}
+
+.button_to {
+  display: inline-block;
+}
+
+.button_to button {
+  outline: none;
+  border: none;
+  background: none;
+  color: #f9f5e7;
+  font-size: 18px;
+}
+
+.log__out:hover button,
+.log__out:hover i {
+  color: #eddbc7;
+}

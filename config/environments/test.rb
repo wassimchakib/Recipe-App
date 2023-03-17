@@ -39,6 +39,8 @@ Rails.application.configure do
   config.active_storage.service = :test
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
@@ -53,10 +55,22 @@ Rails.application.configure do
 
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
+  config.action_mailer.default_url_options = { host: 'localhost', port: 31337 }
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   :user_name => 'a820427f53a7e2',
+  #   :password => 'ff7d0c727280dc',
+  #   :address => 'sandbox.smtp.mailtrap.io',
+  #   :domain => 'sandbox.smtp.mailtrap.io',
+  #   :port => '2525',
+  #   :authentication => :cram_md5
+  # }
+config.action_mailer.smtp_settings = { enable_starttls_auto: false }
+Capybara.server_port = 31337
 end
