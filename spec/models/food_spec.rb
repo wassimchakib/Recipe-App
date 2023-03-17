@@ -10,7 +10,7 @@ RSpec.describe Food, type: :model do
   end
 
   let :food do
-    Food.find_or_create_by(name: 'Olive Oil', measurement_unit: 'l', price: 200, quantity: 5, user: user)
+    Food.find_or_create_by(name: 'Olive Oil', measurement_unit: 'l', price: 200, quantity: 5, user:)
   end
 
   it 'fails because name should be present' do

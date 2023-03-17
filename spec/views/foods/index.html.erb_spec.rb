@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Foods index', type: :system do
   before(:each) do
-    user = User.find_or_create_by(email: 'test@microverse.org') do |user|
-      user.name = 'micronaut'
-      user.password = Devise.friendly_token.first(8)
-      user.confirmed_at = Time.now
+    user = User.find_or_create_by(email: 'test@microverse.org') do |u|
+      u.name = 'micronaut'
+      u.password = Devise.friendly_token.first(8)
+      u.confirmed_at = Time.now
     end
 
-    food = Food.find_or_create_by(name: 'Olive Oil', measurement_unit: 'l', price: 200, quantity: 5, user: user)
+    Food.find_or_create_by(name: 'Olive Oil', measurement_unit: 'l', price: 200, quantity: 5, user:)
 
     login_as(user)
   end
@@ -31,7 +31,7 @@ RSpec.describe 'Foods index', type: :system do
 
   it 'shows the Food Price' do
     visit foods_path
-    expect(page).to have_content("$200")
+    expect(page).to have_content('$200')
   end
 
   it 'shows the Food Quantity' do
